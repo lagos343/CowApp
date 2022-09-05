@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaDominioNegocio;
 using CapaDominioNegocio.Validaciones;
 using CapaPresentacion.RjMessageBox;
+using CapaPresentacion.Formularios;
 
 
 namespace CapaPresentacion
@@ -55,7 +56,12 @@ namespace CapaPresentacion
 
             if (resultadosValidacion.IsValid)
             {
-                if (login.PermitirLogueo()) RJMessageBox.Show("Bienvenido al sistema");
+                if (login.PermitirLogueo())
+                {
+                    Form_MenuPrincipal menu = new Form_MenuPrincipal();
+                    menu.Show();
+                    LimpiezaLogin();
+                }
                 else
                 {
                     RJMessageBox.Show("¡Credenciales incorrectas!\nCorrija el nombre de usuario o la contraseña\npor datos validos",
@@ -70,6 +76,14 @@ namespace CapaPresentacion
                 txt_contraseña.Texts = string.Empty;
                 txt_usuario.Focus();
             }
+        }
+
+        private void LimpiezaLogin()
+        {
+            txt_usuario.Texts = string.Empty;
+            txt_contraseña.Texts = string.Empty;
+            btn_ingresar.Focus();
+            this.Hide();
         }
 
         //Prod para extraer la lista de errores
