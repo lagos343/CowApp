@@ -95,6 +95,12 @@
     <Compile Include="Formularios\Form_Login.Designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Form_MantenimientoUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_MantenimientoUsuarios.Designer.cs">
+      <DependentUpon>Form_MantenimientoUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Form_MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form_MantenimientoUsuarios.resx">
+      <DependentUpon>Form_MantenimientoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form_MenuPrincipal.resx">
       <DependentUpon>Form_MenuPrincipal.cs</DependentUpon>

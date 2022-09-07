@@ -15,6 +15,7 @@ namespace CapaPresentacion.Formularios
     public partial class Form_MenuPrincipal : Form
     {
         private Form formActivado = null;
+        private FontAwesome.Sharp.IconButton btnResaltado = null;
 
         #region Movimiento del formulario  
 
@@ -41,8 +42,7 @@ namespace CapaPresentacion.Formularios
 
             this.BackColor = borderColor;
             this.Padding = new Padding(borderSize);
-            panel1.BackColor = Color.White;
-            iconButton5.BackColor = Color.White;
+            Titulo_FormAbierto.BackColor = Color.White;
         }
 
         #region Bonones Generales del Formulario
@@ -75,6 +75,12 @@ namespace CapaPresentacion.Formularios
 
         public void AbrirFormulario(Form formHijo) //abre los formularios hijos en el panel 
         {
+            if (!Titulo_FormAbierto.Visible)
+            {
+                Titulo_FormAbierto.Visible = true;
+                btn_cerrarForm.Visible = true;
+            }
+
             if (formActivado != null)
                 formActivado.Close();
             formActivado = formHijo;
@@ -101,21 +107,33 @@ namespace CapaPresentacion.Formularios
             btn.BackColor = Color.FromArgb(213, 109, 255);
             btn.ForeColor = Color.White;
             btn.IconColor = Color.White;
-            iconButton5.Text = btn.Text;
-            iconButton5.IconChar = btn.IconChar;
+            Titulo_FormAbierto.Text = btn.Text;
+            Titulo_FormAbierto.IconChar = btn.IconChar;
         }
-
-        #endregion
 
         private void btn_usuarios_Click(object sender, EventArgs e)
         {
             SelecionarBoton((FontAwesome.Sharp.IconButton)sender);
             AbrirFormulario(new Form_GeneralUsuarios());
+            btnResaltado = (FontAwesome.Sharp.IconButton)sender;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
             SelecionarBoton((FontAwesome.Sharp.IconButton)sender);
         }
+
+        private void btn_cerrarForm_Click(object sender, EventArgs e)
+        {
+            formActivado.Close();
+            formActivado = null;
+            Titulo_FormAbierto.Visible = !true;
+            btn_cerrarForm.Visible = !true;
+            btnResaltado.BackColor = Color.FromArgb(29, 29, 46);
+            btnResaltado.ForeColor = Color.FromArgb(147, 149, 170);
+            btnResaltado.IconColor = Color.FromArgb(147, 149, 170);
+        }
+
+        #endregion       
     }
 }
