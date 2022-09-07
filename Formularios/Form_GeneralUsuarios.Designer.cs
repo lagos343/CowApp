@@ -29,15 +29,17 @@ namespace CapaPresentacion.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new RJCodeAdvance.RJControls.RJTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_usuarios = new System.Windows.Forms.DataGridView();
             this.btn_añadir = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_buscar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_usuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -47,9 +49,9 @@ namespace CapaPresentacion.Formularios
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(14, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 17);
+            this.label1.Size = new System.Drawing.Size(134, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Lista de Usuarios";
+            this.label1.Text = "Listado de Usuarios";
             // 
             // label2
             // 
@@ -84,15 +86,46 @@ namespace CapaPresentacion.Formularios
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = true;
             // 
-            // dataGridView1
+            // dgv_usuarios
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(839, 484);
-            this.dataGridView1.TabIndex = 3;
+            this.dgv_usuarios.AllowUserToAddRows = false;
+            this.dgv_usuarios.AllowUserToDeleteRows = false;
+            this.dgv_usuarios.AllowUserToResizeColumns = false;
+            this.dgv_usuarios.AllowUserToResizeRows = false;
+            this.dgv_usuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_usuarios.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_usuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_usuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgv_usuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(86)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(86)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_usuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_usuarios.ColumnHeadersHeight = 34;
+            this.dgv_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(149)))), ((int)(((byte)(170)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(207)))), ((int)(((byte)(253)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_usuarios.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_usuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_usuarios.EnableHeadersVisualStyles = false;
+            this.dgv_usuarios.GridColor = System.Drawing.Color.LightGray;
+            this.dgv_usuarios.Location = new System.Drawing.Point(33, 119);
+            this.dgv_usuarios.MultiSelect = false;
+            this.dgv_usuarios.Name = "dgv_usuarios";
+            this.dgv_usuarios.RowHeadersVisible = false;
+            this.dgv_usuarios.RowTemplate.Height = 34;
+            this.dgv_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_usuarios.Size = new System.Drawing.Size(839, 483);
+            this.dgv_usuarios.TabIndex = 3;
             // 
             // btn_añadir
             // 
@@ -155,19 +188,20 @@ namespace CapaPresentacion.Formularios
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1021, 632);
+            this.ClientSize = new System.Drawing.Size(1021, 628);
             this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_editar);
             this.Controls.Add(this.btn_añadir);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_usuarios);
             this.Controls.Add(this.rjTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_GeneralUsuarios";
             this.Text = "Form_GeneralUsuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Form_GeneralUsuarios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_usuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +212,7 @@ namespace CapaPresentacion.Formularios
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private RJCodeAdvance.RJControls.RJTextBox rjTextBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_usuarios;
         private System.Windows.Forms.Button btn_añadir;
         private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.Button btn_eliminar;

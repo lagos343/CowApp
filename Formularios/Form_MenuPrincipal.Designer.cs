@@ -30,24 +30,28 @@ namespace CapaPresentacion.Formularios
         private void InitializeComponent()
         {
             this.panel_barraTitulo = new System.Windows.Forms.Panel();
+            this.btn_minimizar = new FontAwesome.Sharp.IconPictureBox();
+            this.btn_salir = new FontAwesome.Sharp.IconPictureBox();
             this.panel_menu = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel_contenedorForms = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.btn_usuarios = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.btn_minimizar = new FontAwesome.Sharp.IconPictureBox();
-            this.btn_salir = new FontAwesome.Sharp.IconPictureBox();
+            this.panel_contenedor = new System.Windows.Forms.Panel();
+            this.panel_contenedorForms = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_cerrarForm = new FontAwesome.Sharp.IconPictureBox();
+            this.Titulo_FormAbierto = new FontAwesome.Sharp.IconButton();
             this.panel_barraTitulo.SuspendLayout();
-            this.panel_menu.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
+            this.panel_menu.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel_contenedor.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_cerrarForm)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_barraTitulo
@@ -58,18 +62,57 @@ namespace CapaPresentacion.Formularios
             this.panel_barraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_barraTitulo.Location = new System.Drawing.Point(0, 0);
             this.panel_barraTitulo.Name = "panel_barraTitulo";
-            this.panel_barraTitulo.Size = new System.Drawing.Size(1250, 30);
+            this.panel_barraTitulo.Size = new System.Drawing.Size(1250, 29);
             this.panel_barraTitulo.TabIndex = 0;
             this.panel_barraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_barraTitulo_MouseDown);
+            // 
+            // btn_minimizar
+            // 
+            this.btn_minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_minimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(142)))), ((int)(((byte)(0)))));
+            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_minimizar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_minimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            this.btn_minimizar.IconColor = System.Drawing.SystemColors.ControlText;
+            this.btn_minimizar.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btn_minimizar.IconSize = 25;
+            this.btn_minimizar.Location = new System.Drawing.Point(1190, 2);
+            this.btn_minimizar.Name = "btn_minimizar";
+            this.btn_minimizar.Size = new System.Drawing.Size(25, 25);
+            this.btn_minimizar.TabIndex = 1;
+            this.btn_minimizar.TabStop = false;
+            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
+            this.btn_minimizar.MouseLeave += new System.EventHandler(this.btn_salir_MouseLeave);
+            // 
+            // btn_salir
+            // 
+            this.btn_salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(142)))), ((int)(((byte)(0)))));
+            this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_salir.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
+            this.btn_salir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_salir.IconChar = FontAwesome.Sharp.IconChar.Multiply;
+            this.btn_salir.IconColor = System.Drawing.SystemColors.ControlText;
+            this.btn_salir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_salir.IconSize = 25;
+            this.btn_salir.Location = new System.Drawing.Point(1218, 2);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(30, 25);
+            this.btn_salir.TabIndex = 0;
+            this.btn_salir.TabStop = false;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salir.MouseEnter += new System.EventHandler(this.btn_salir_MouseHover);
+            this.btn_salir.MouseLeave += new System.EventHandler(this.btn_salir_MouseLeave);
+            this.btn_salir.MouseHover += new System.EventHandler(this.btn_salir_MouseHover);
             // 
             // panel_menu
             // 
             this.panel_menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(46)))));
             this.panel_menu.Controls.Add(this.flowLayoutPanel1);
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel_menu.Location = new System.Drawing.Point(0, 30);
+            this.panel_menu.Location = new System.Drawing.Point(0, 29);
             this.panel_menu.Name = "panel_menu";
-            this.panel_menu.Size = new System.Drawing.Size(229, 690);
+            this.panel_menu.Size = new System.Drawing.Size(229, 691);
             this.panel_menu.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -84,44 +127,6 @@ namespace CapaPresentacion.Formularios
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(229, 517);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // panel_contenedorForms
-            // 
-            this.panel_contenedorForms.BackColor = System.Drawing.Color.White;
-            this.panel_contenedorForms.Location = new System.Drawing.Point(229, 93);
-            this.panel_contenedorForms.Name = "panel_contenedorForms";
-            this.panel_contenedorForms.Size = new System.Drawing.Size(1021, 627);
-            this.panel_contenedorForms.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.iconButton5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(229, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1021, 67);
-            this.panel1.TabIndex = 3;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton5.ForeColor = System.Drawing.Color.Black;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconButton5.IconColor = System.Drawing.Color.Black;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 45;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(7, 4);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(238, 51);
-            this.iconButton5.TabIndex = 6;
-            this.iconButton5.Text = "  Usuarios";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton5.UseVisualStyleBackColor = true;
             // 
             // btn_usuarios
             // 
@@ -235,44 +240,75 @@ namespace CapaPresentacion.Formularios
             this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton4.UseVisualStyleBackColor = true;
             // 
-            // btn_minimizar
+            // panel_contenedor
             // 
-            this.btn_minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_minimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(142)))), ((int)(((byte)(0)))));
-            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_minimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btn_minimizar.IconColor = System.Drawing.SystemColors.ControlText;
-            this.btn_minimizar.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btn_minimizar.IconSize = 25;
-            this.btn_minimizar.Location = new System.Drawing.Point(1190, 2);
-            this.btn_minimizar.Name = "btn_minimizar";
-            this.btn_minimizar.Size = new System.Drawing.Size(25, 25);
-            this.btn_minimizar.TabIndex = 1;
-            this.btn_minimizar.TabStop = false;
-            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
-            this.btn_minimizar.MouseLeave += new System.EventHandler(this.btn_salir_MouseLeave);
+            this.panel_contenedor.BackColor = System.Drawing.Color.White;
+            this.panel_contenedor.Controls.Add(this.panel_contenedorForms);
+            this.panel_contenedor.Controls.Add(this.panel1);
+            this.panel_contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_contenedor.Location = new System.Drawing.Point(229, 29);
+            this.panel_contenedor.Name = "panel_contenedor";
+            this.panel_contenedor.Size = new System.Drawing.Size(1021, 691);
+            this.panel_contenedor.TabIndex = 2;
             // 
-            // btn_salir
+            // panel_contenedorForms
             // 
-            this.btn_salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(142)))), ((int)(((byte)(0)))));
-            this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_salir.Flip = FontAwesome.Sharp.FlipOrientation.Vertical;
-            this.btn_salir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_salir.IconChar = FontAwesome.Sharp.IconChar.Multiply;
-            this.btn_salir.IconColor = System.Drawing.SystemColors.ControlText;
-            this.btn_salir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_salir.IconSize = 25;
-            this.btn_salir.Location = new System.Drawing.Point(1218, 2);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(30, 25);
-            this.btn_salir.TabIndex = 0;
-            this.btn_salir.TabStop = false;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
-            this.btn_salir.MouseEnter += new System.EventHandler(this.btn_salir_MouseHover);
-            this.btn_salir.MouseLeave += new System.EventHandler(this.btn_salir_MouseLeave);
-            this.btn_salir.MouseHover += new System.EventHandler(this.btn_salir_MouseHover);
+            this.panel_contenedorForms.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_contenedorForms.Location = new System.Drawing.Point(0, 63);
+            this.panel_contenedorForms.Name = "panel_contenedorForms";
+            this.panel_contenedorForms.Size = new System.Drawing.Size(1021, 628);
+            this.panel_contenedorForms.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btn_cerrarForm);
+            this.panel1.Controls.Add(this.Titulo_FormAbierto);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1021, 57);
+            this.panel1.TabIndex = 7;
+            // 
+            // btn_cerrarForm
+            // 
+            this.btn_cerrarForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_cerrarForm.BackColor = System.Drawing.Color.White;
+            this.btn_cerrarForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cerrarForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(98)))), ((int)(((byte)(101)))));
+            this.btn_cerrarForm.IconChar = FontAwesome.Sharp.IconChar.XmarkSquare;
+            this.btn_cerrarForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(98)))), ((int)(((byte)(101)))));
+            this.btn_cerrarForm.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btn_cerrarForm.IconSize = 30;
+            this.btn_cerrarForm.Location = new System.Drawing.Point(980, 15);
+            this.btn_cerrarForm.Name = "btn_cerrarForm";
+            this.btn_cerrarForm.Size = new System.Drawing.Size(30, 30);
+            this.btn_cerrarForm.TabIndex = 2;
+            this.btn_cerrarForm.TabStop = false;
+            this.btn_cerrarForm.Visible = false;
+            this.btn_cerrarForm.Click += new System.EventHandler(this.btn_cerrarForm_Click);
+            // 
+            // Titulo_FormAbierto
+            // 
+            this.Titulo_FormAbierto.Enabled = false;
+            this.Titulo_FormAbierto.FlatAppearance.BorderSize = 0;
+            this.Titulo_FormAbierto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Titulo_FormAbierto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo_FormAbierto.ForeColor = System.Drawing.Color.Black;
+            this.Titulo_FormAbierto.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.Titulo_FormAbierto.IconColor = System.Drawing.Color.Black;
+            this.Titulo_FormAbierto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Titulo_FormAbierto.IconSize = 45;
+            this.Titulo_FormAbierto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Titulo_FormAbierto.Location = new System.Drawing.Point(6, 3);
+            this.Titulo_FormAbierto.Margin = new System.Windows.Forms.Padding(0);
+            this.Titulo_FormAbierto.Name = "Titulo_FormAbierto";
+            this.Titulo_FormAbierto.Size = new System.Drawing.Size(278, 51);
+            this.Titulo_FormAbierto.TabIndex = 6;
+            this.Titulo_FormAbierto.Text = "  Usuarios";
+            this.Titulo_FormAbierto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Titulo_FormAbierto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Titulo_FormAbierto.UseVisualStyleBackColor = true;
+            this.Titulo_FormAbierto.Visible = false;
             // 
             // Form_MenuPrincipal
             // 
@@ -280,8 +316,7 @@ namespace CapaPresentacion.Formularios
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1250, 720);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel_contenedorForms);
+            this.Controls.Add(this.panel_contenedor);
             this.Controls.Add(this.panel_menu);
             this.Controls.Add(this.panel_barraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -289,11 +324,13 @@ namespace CapaPresentacion.Formularios
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal CowApp";
             this.panel_barraTitulo.ResumeLayout(false);
-            this.panel_menu.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
+            this.panel_menu.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel_contenedor.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_cerrarForm)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -303,7 +340,7 @@ namespace CapaPresentacion.Formularios
         private System.Windows.Forms.Panel panel_barraTitulo;
         private FontAwesome.Sharp.IconPictureBox btn_minimizar;
         private System.Windows.Forms.Panel panel_menu;
-        private System.Windows.Forms.Panel panel_contenedorForms;
+        private System.Windows.Forms.Panel panel_contenedor;
         private FontAwesome.Sharp.IconPictureBox btn_salir;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private FontAwesome.Sharp.IconButton btn_usuarios;
@@ -311,7 +348,9 @@ namespace CapaPresentacion.Formularios
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton Titulo_FormAbierto;
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private System.Windows.Forms.Panel panel_contenedorForms;
+        private FontAwesome.Sharp.IconPictureBox btn_cerrarForm;
     }
 }
