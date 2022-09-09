@@ -60,5 +60,35 @@ namespace CapaDominioNegocio
                 "clave_usuario)) as contraseña from Usuarios where estado_usuario = 1 and id_usuario = " + idUsuario);
             return registrosUsuarios.Rows[0];
         }
+
+        public bool GuardarNuevoUsuario()
+        {
+            string cadenaInsercion = "insert into Usuarios values (" + idRol + ", " + idEmpleado + ", '" + nombreUsuario + "', " +
+                "ENCRYPTBYPASSPHRASE('TecnoPc', N'" + claveUsuario + "'), " + 1 + ")";
+                
+            return usuarios.EjecutarTransactSql(cadenaInsercion);
+        }
+
+        public bool EditarUsuario()
+        {
+            string cadenaInsercion = "update Usuarios set [id_rol] = "+idRol+", [id_empleado] = "+idEmpleado+", [nombre_usuario] = '" + 
+                nombreUsuario + "', clave_usuario = ENCRYPTBYPASSPHRASE('TecnoPc', N'" + claveUsuario + "') where [id_usuario] = " + idUsuario;
+
+            return usuarios.EjecutarTransactSql(cadenaInsercion);
+        }
+
+        public void EliminarUsuario()
+        {
+            string cadenaEliminacion = "update Usuarios set estado_usuario = 0 where [id_usuario] = " +idUsuario;
+            usuarios.EjecutarTransactSql(cadenaEliminacion);
+        }
+
+        public DataTable ObtenerUsuarioMedianteBusqueda()
+        {
+            registrosUsuarios = usuarios.ObtenerRegistros("select u.id_usuario, u.nombre_usuario as Usuario, (e.nombre_empleado + ' ' + e.apellido_empleado) " +
+                "as Propietario, r.nombre_rol as Rol from Usuarios u inner join Roles r on r.id_rol = u.id_rol inner join Empleados e on e.id_empleado = " +
+                "u.id_empleado where estado_usuario = 1 and nombre_usuario LIKE '%" + nombreUsuario+ "%'");
+            return registrosUsuarios;
+        }
     }
 }

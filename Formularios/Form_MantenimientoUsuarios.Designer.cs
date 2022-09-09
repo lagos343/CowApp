@@ -214,7 +214,7 @@ namespace CapaPresentacion.Formularios
             // 
             // cbo_empleado
             // 
-            this.cbo_empleado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbo_empleado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cbo_empleado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_empleado.BackColor = System.Drawing.Color.White;
             this.cbo_empleado.FormattingEnabled = true;
@@ -225,7 +225,7 @@ namespace CapaPresentacion.Formularios
             // 
             // cbo_rol
             // 
-            this.cbo_rol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbo_rol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cbo_rol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_rol.FormattingEnabled = true;
             this.cbo_rol.Location = new System.Drawing.Point(473, 225);

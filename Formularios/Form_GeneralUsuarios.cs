@@ -53,12 +53,27 @@ namespace CapaPresentacion.Formularios
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
+            var resultado = RJMessageBox.Show("¿Esta seguro que desea eliminar este Usuario?", "CowApp Usuarios", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (resultado == DialogResult.Yes)
+            {
+                usuarios.IdUsuario = dgv_usuarios.CurrentRow.Cells[0].Value.ToString();
+                usuarios.EliminarUsuario();
+                RJMessageBox.Show("Usuario eliminado con Exito");
+                btn_buscar.PerformClick();
+            }
         }
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
+            usuarios.NombreUsuario = txt_busquedaFiltrada.Texts;
+            dgv_usuarios.DataSource = usuarios.ObtenerUsuarioMedianteBusqueda();
+        }
 
+        private void txt_busquedaFiltrada__TextChanged(object sender, EventArgs e)
+        {
+            btn_buscar.PerformClick();
         }
     }
 }

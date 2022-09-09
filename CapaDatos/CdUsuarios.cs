@@ -14,6 +14,7 @@ namespace CapaDatos
         private SqlConecct sqlConexion = new SqlConecct();
         protected DataTable registrosUsuarios;
         private SqlDataAdapter adapterSql;
+        private SqlCommand comandoSql; 
 
         //Metodos
         public DataTable ObtenerRegistros(string cadenaConsulta)
@@ -25,6 +26,15 @@ namespace CapaDatos
             sqlConexion.CerrarConeccion();
 
             return registrosUsuarios;
+        }
+
+        public bool EjecutarTransactSql(string cadenaComando)
+        {
+            comandoSql = new SqlCommand(cadenaComando, sqlConexion.AbrirConeccion());
+            comandoSql.CommandType = CommandType.Text;
+            try { comandoSql.ExecuteNonQuery(); }
+            catch (Exception) { return false; }
+            return true;
         }
     }
 }
